@@ -407,6 +407,10 @@ void init_global_variables(void)
         reset_prout();
 #endif
 
+#ifdef CONFIG_PROUT
+        reset_control();
+#endif
+
 #ifdef CONFIG_VARIO
         reset_vario();
 #endif

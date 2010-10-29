@@ -80,6 +80,10 @@
 #include "prout.h"
 #endif
 
+#ifdef CONFIG_CONTROL
+#include "control.h"
+#endif
+
 #ifdef CONFIG_VARIO
 #include "vario.h"
 #endif
@@ -370,6 +374,18 @@ const struct menu menu_L2_Prout =
 };
 #endif
 
+#ifdef CONFIG_CONTROL
+// Line2 - Control
+const struct menu menu_L2_Control =
+{
+	FUNCTION(sx_control),				// direct function
+	FUNCTION(mx_control),				// sub menu function
+	FUNCTION(menu_skip_next),		// next item function
+	FUNCTION(display_control),		// display function
+	FUNCTION(update_time),			// new display data
+};
+#endif
+
 #ifdef CONFIG_STRENGTH
 // Line1 - Kieser Training timer
 const struct menu menu_L1_Strength =
@@ -433,6 +449,9 @@ const struct menu *menu_L2[]={
 	&menu_L2_RFBSL,
 	#ifdef CONFIG_PROUT
 	&menu_L2_Prout,
+	#endif	
+	#ifdef CONFIG_CONTROL
+	&menu_L2_Control,
 	#endif	
 };
 

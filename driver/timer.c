@@ -69,6 +69,10 @@
 #include "prout.h"
 #endif
 
+#ifdef CONFIG_CONTROL
+#include "control.h"
+#endif
+
 #ifdef CONFIG_VARIO
 #include "vario.h"
 #endif
@@ -369,6 +373,10 @@ __interrupt void TIMER0_A0_ISR(void)
 
 #ifdef CONFIG_PROUT
         if (is_prout()) prout_tick();
+#endif
+
+#ifdef CONFIG_CONTROL
+        if (is_control()) control_tick();
 #endif
 
 #ifdef CONFIG_VARIO

@@ -144,6 +144,10 @@ DATA["CONFIG_PROUT"] = {
         "depends": [],
         "default": False}
 
+DATA["CONFIG_CONTROL"] = {
+        "name": "General purpose remote control application",
+        "depends": [],
+        "default": False}
 
 DATA["CONFIG_SIDEREAL"] = {
         "name": "Sidereal Time Clock",
